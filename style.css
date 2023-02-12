@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+}
+
+.colonne_droite {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.colonne_gauche {
+    width: 50%;
+    padding-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 3px solid dodgerblue;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: deepskyblue;
+}
+
+ input, textarea {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 3px solid dodgerblue;
+}
+
+input[type="submit"] {
+    width: auto;
+    padding: 10px 20px;
+    background-color: dodgerblue;
+    cursor: pointer;
+}

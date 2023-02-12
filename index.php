@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Test Makeo</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -18,7 +19,7 @@
             <label for="message">Message :</label>
             <textarea id="message" name="message"></textarea>
 
-            <input type="submit" value="Soumettre">
+            <input type="submit" value="Envoyer">
         </form>
     </div>
     <div class="colonne_gauche">
