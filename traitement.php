@@ -1,3 +1,4 @@
+
 <?php
 // Information de connection à la base de données
 $servername = "localhost";
@@ -13,13 +14,18 @@ if ($conn->connect_error) {
     die("Connection échouée: " . $conn->connect_error);
 }
 echo "Connection réussie";
+
+// Récupération toutes les données de la base de données
+$sql = "SELECT nomprenom, email, message FROM envoi_formulaire";
+$result = mysqli_query($conn, $sql);
+
 // Vérifie si le formulaire a été soumis
 if (isset($_POST['nomprenom']) && isset($_POST['email']) && isset($_POST['message'])) {
 
     // Enregistrement des données du formulaire dans des variables
-    $nomprenom = $_POST["nomprenom"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
+    $nomprenom = htmlspecialchars(strip_tags($_POST["nomprenom"]));
+    $email = htmlspecialchars(strip_tags($_POST["email"]));
+    $message = htmlspecialchars(strip_tags($_POST["message"]));
 
     // Validation des données du formulaire
     if (empty($nomprenom) || empty($email) || empty($message)) {
@@ -36,10 +42,9 @@ if (isset($_POST['nomprenom']) && isset($_POST['email']) && isset($_POST['messag
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+    header("Location: http://localhost/Makeo/index.php");
+    exit;
 
-    // Récupération toutes les données de la base de données
-    $sql = "SELECT nomprenom, email, message FROM envoi_formulaire";
-    $result = mysqli_query($conn, $sql);
 }
 
 $conn->close();
